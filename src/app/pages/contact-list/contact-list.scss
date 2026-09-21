@@ -1,0 +1,133 @@
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  font-family: sans-serif;
+
+  h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: #007bff; 
+    letter-spacing: 0.5px;
+    border-left: 5px solid #0056b3;
+    padding-left: 12px;
+  }
+
+  button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+      background-color: #c82333;
+    }
+  }
+}
+
+main {
+  padding: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+.contacto.card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: #333;
+    flex-grow: 1;
+
+    img {
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    span:nth-child(2) {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    span:nth-child(3) {
+      color: #666;
+      font-size: 14px;
+    }
+  }
+
+  div {
+    display: flex;
+    gap: 10px;
+
+    button {
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+
+      &:first-child {
+        background-color: #e2e6ea;
+        color: #333;
+        
+        &:hover {
+          background-color: #dae0e5;
+        }
+      }
+
+      &:last-child {
+        background-color: #ff4d4d;
+        color: white;
+
+        &:hover {
+          background-color: #cc0000;
+        }
+      }
+    }
+  }
+}
+
+
+.fab {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #007bff;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out; 
+
+  &:hover {
+    background-color: #0056b3;
+
+  }
+}

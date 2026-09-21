@@ -5,7 +5,7 @@
 <main>
   @for (contacto of contactsService.contactList; track $index) {
   <div class="contacto card">
-    <a [routerLink]="['/contacts',contacto.id]">
+    <a [routerLink]="['/contacts', contacto.id]">
       <span>
         <img src="img/person.png" alt="Foto del contacto" width="50px">
       </span>

@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from "@angular/router";
+import { Contacts } from '../../services/contacts'; 
+import Swal from 'sweetalert2';
 
 @Component({
   imports: [RouterLink],
@@ -8,39 +10,35 @@ import { RouterLink } from "@angular/router";
   templateUrl: './contactos.html',
 })
 export class Contactos {
-  
-  contactos = [
-  {
-    "nombre": "Lucas",
-    "apellido": "Benítez",
-    "numero": "+54 9 341 456-7890"
-  },
-  {
-    "nombre": "Martina",
-    "apellido": "Rossi",
-    "numero": "+54 9 341 512-3456"
-  },
-  {
-    "nombre": "Joaquín",
-    "apellido": "Morales",
-    "numero": "+54 9 11 6234-8901"
-  },
-  {
-    "nombre": "Valentina",
-    "apellido": "Gómez",
-    "numero": "+54 9 341 398-7654"
+
+  contactsService = inject(Contacts);
+
+  eliminarContacto(id: string) {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "No podrás deshacer esta acción",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#ff4d4d',
+      cancelButtonColor: '#6c757d',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        
+        this.contactsService.deleteContact(id);
+        
+        Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 2000,
+          theme: 'dark'
+        }).fire({
+          icon: "success",
+          title: "Contacto eliminado"
+        });
+      }
+    });
   }
-]
-
 }
-
-interface Contacto{
-  nombre: string;
-  apellido: string;
-  numero: string;
-}
-
-function contactovacio():Contacto{
-  return{nombre:"",apellido:"",numero:""}
-}
-

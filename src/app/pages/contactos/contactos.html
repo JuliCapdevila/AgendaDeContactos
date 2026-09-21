@@ -1,6 +1,20 @@
-<h1>Contactos</h1>
-<button>Agregar Contacto</button>
-@for (contacto of contactos; track $index) {
-    <span><div>{{contacto.nombre}}</div> <div>{{contacto.apellido}}</div> <div>{{contacto.numero}}</div>
-    </span>
-}
+<div class="agenda-container">
+  <h1>Contactos</h1>
+  <button class="btn-agregar" routerLink="/contacts/create">Agregar Contacto</button>
+
+  <div class="lista-contactos">
+    @for (contacto of contactsService.contactList; track $index) {
+      <div class="contacto-item">
+        <div class="info-personal">
+          {{contacto.nombre}} {{contacto.apellido}}
+        </div>
+        <div class="numero">
+          {{contacto.numeroTelefono}}
+        </div>
+        <button class="btn-eliminar" (click)="eliminarContacto(contacto.id)">
+          Eliminar
+        </button>
+      </div>
+    }
+  </div>
+</div>

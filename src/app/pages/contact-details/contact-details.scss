@@ -1,0 +1,120 @@
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  font-family: sans-serif;
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+  }
+  .button {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    background-color: #e2e6ea;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #dae0e5;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: #007bff;
+    border-left: 5px solid #0056b3;
+    padding-left: 12px;
+  }
+
+ 
+  button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+      background-color: #c82333;
+    }
+  }
+}
+
+
+main.card {
+
+  max-width: 600px;
+  margin: 30px auto;
+  font-family: sans-serif;
+  
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  > div:not(:last-child) {
+    border-bottom: 1px solid #eee; 
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    p {
+      margin: 0;
+    }
+    p:first-child {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 4px;
+      text-transform: uppercase; 
+      letter-spacing: 0.5px;
+    }
+    p:last-child {
+      font-size: 18px;
+      color: #333;
+      font-weight: 500;
+    }
+  }
+
+  > div:last-child {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px; 
+
+    button {
+      border: none;
+      padding: 12px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+
+      &:first-child {
+        background-color: #e2e6ea;
+        color: #333;
+        
+        &:hover {
+          background-color: #dae0e5;
+        }
+      }
+      &:last-child {
+        background-color: #ff4d4d;
+        color: white;
+
+        &:hover {
+          background-color: #cc0000;
+        }
+      }
+    }
+  }
+}
