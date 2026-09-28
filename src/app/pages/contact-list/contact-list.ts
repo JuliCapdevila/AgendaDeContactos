@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { RouterLink } from "@angular/router";
+import { Component, inject, ChangeDetectorRef } from '@angular/core';
+import { RouterLink, Router } from "@angular/router";
 import { Contacts } from '../../services/contacts';
 import Swal from 'sweetalert2';
 
@@ -11,8 +11,13 @@ import Swal from 'sweetalert2';
 })
 export class ContactList {
 
-  // Dejamos el nombre como contactsService para que coincida exactamente con el HTML
   contactsService = inject(Contacts);
+  router = inject(Router);
+  cdr = inject(ChangeDetectorRef);
+
+  editarContacto(id: string) {
+    this.router.navigate(['/contacts', id, 'edit']);
+  }
 
   eliminarContacto(id: string) {
     Swal.fire({
@@ -28,6 +33,7 @@ export class ContactList {
       if (result.isConfirmed) {
         
         this.contactsService.deleteContact(id);
+        this.cdr.detectChanges();
         
         Swal.mixin({
           toast: true,

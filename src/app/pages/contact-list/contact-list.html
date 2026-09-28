@@ -3,7 +3,7 @@
   <button>Cerrar sesión</button>
 </header>
 <main>
-  @for (contacto of contactsService.contactList; track $index) {
+  @for (contacto of contactsService.contactList; track contacto.id) {
   <div class="contacto card">
     <a [routerLink]="['/contacts', contacto.id]">
       <span>
@@ -17,7 +17,7 @@
       </span>
     </a>
     <div>
-      <button>Editar</button>
+      <button (click)="editarContacto(contacto.id)">Editar</button>
       <button (click)="eliminarContacto(contacto.id)">Eliminar</button>
     </div>
   </div>

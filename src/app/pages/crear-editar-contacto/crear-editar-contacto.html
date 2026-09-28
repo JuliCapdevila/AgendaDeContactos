@@ -5,8 +5,5 @@
     <input type="text" [formField]="formCreateContact.apellido" id="apellido"/>
     <label for="telefono">Numero de telefono</label>
     <input type="text" [formField]="formCreateContact.numeroTelefono" id="telefono" />
-    <button>Agregar contacto</button>
-
-
-    
+    <button>{{ idContacto() ? 'Guardar cambios' : 'Agregar contacto' }}</button>
 </form>

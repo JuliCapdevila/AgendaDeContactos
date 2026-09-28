@@ -1,7 +1,9 @@
-import { Service } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Contact } from '../interfaces/contact';
 
-@Service()
+@Injectable({
+  providedIn: 'root'
+})
 export class Contacts {
   contactList: Contact[] = [
     {
@@ -24,7 +26,17 @@ export class Contacts {
     return nuevoId;
   }
 
+  editarContacto(contactoActualizado: Contact) {
+    const index = this.contactList.findIndex(c => c.id === contactoActualizado.id);
+    if (index !== -1) {
+      this.contactList[index] = { ...contactoActualizado };
+    }
+  }
+
   deleteContact(id: string) {
-    this.contactList = this.contactList.filter(c => c.id !== id);
+    const index = this.contactList.findIndex(c => c.id === id);
+    if (index !== -1) {
+      this.contactList.splice(index, 1);
+    }
   }
 }

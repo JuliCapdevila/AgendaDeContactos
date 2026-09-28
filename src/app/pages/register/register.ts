@@ -8,3 +8,5 @@ import { RouterLink } from '@angular/router';
   templateUrl: './register.html',
 })
 export class Register {}
+
+
